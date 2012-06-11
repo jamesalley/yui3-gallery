@@ -60,7 +60,7 @@ Y.extend(FlickPanelPlugin, Y.Plugin.Base, {
     },
 
     destructor: function () {
-        this.flickPanelNode.setStyle('position','');
+        this.flickPanelNode.setStyle('position', '');
         this.pullTab.remove();
         this._closePanel();
         this.pullTab.detach();
