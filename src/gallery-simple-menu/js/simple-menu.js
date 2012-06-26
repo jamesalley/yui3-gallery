@@ -13,7 +13,9 @@ var ACTIVE_CLASS_NAME = 'menu-active',
     ARIA_ROLE = 'role',
     ARIA_HIDDEN = 'aria-hidden',
     MENU_OPEN = 0,
-    MENU_CLOSED = 1;
+    MENU_CLOSED = 1,
+    DISMISS_EVENT = (Y.config.win.hasOwnProperty && Y.config.win.hasOwnProperty('ontouchstart')) ? 'touchstart' : 'mousedown';
+
 
 function SimpleMenu (config) {
     this._link = config.host;
@@ -54,7 +56,7 @@ function SimpleMenu (config) {
         }
     }, this);
 
-    Y.one(document).on('mousedown', function (e) {
+    Y.one(document).on(DISMISS_EVENT, function (e) {
         var target = e.target;
 
         if (target !== this._link && !this._menu.contains(target)) {
