@@ -37,7 +37,7 @@ Y.extend(TapToTopPlugin, Y.Plugin.Base, {
         this.windowListener = Y.on('scroll', this._handleWindowScroll, Y.config.win, this);
 
         this.scrollAnimation = new Y.Anim({
-            node: Y.config.doc,
+            node: Y.one('body'),
             easing: 'easeOut',
             to: {
                 scrollTop: 0
@@ -82,4 +82,4 @@ Y.TapToTopPlugin = TapToTopPlugin;
 
 
 
-}, '@VERSION@' ,{skinnable:true, requires:['node','event','plugin','anim-base','anim-easing']});
+}, '@VERSION@' ,{requires:['node','event','plugin','anim-base','anim-easing'], skinnable:true});
